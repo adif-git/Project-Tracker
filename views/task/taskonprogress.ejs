@@ -1,0 +1,47 @@
+<!-- Dashboard Title -->
+<h5 class="d-inline-block font-weight-bold px-4 py-2 mb-3 rounded-pill" style="background-color: #061C2C; color: #deb992; border: 2px solid rgba(255, 251, 1, 0.966);">On Progress</h5>
+<!-- Show task in every project -->
+<div class="container-fluid py-3 rounded-lg text-white" style="background-color: #061C2C; border: 1px solid rgba(255, 251, 1, 0.966);">
+  <% for (var project in projects){ %>
+    <% let first = true %>
+    <% for (var task in tasks){ %>
+      <% if (tasks[task].task_status === 'On Progress') { %>
+        <% if (tasks[task].project_id == projects[project].id) { %>
+          <!-- Show Project Title and give flag for first iteration so it won't be showing twice -->
+          <% if (first === true) { %>
+            <h6 class="text-left font-weight-bold my-2"><%= projects[project].project_title %></h6>
+            <% first = false %>
+          <% } %>
+          <!-- Show task for each project -->
+          <div class="d-flex pb-2">
+            <div class="mr-auto">
+              <p class="m-0">
+                <!-- Button to show task description when hover -->
+                <button type="button" class="btn btn-primary btn-sm fa fa-info mr-1" data-toggle="tooltip" data-html="true" title="<%= tasks[task].task_description %>">
+                </button>
+                <!-- Show task title -->
+                <%= tasks[task].task_title %>
+              </p>
+            </div>
+            <div class="pr-1">
+              <!-- Form to update task status -->
+              <form action="/update-task-status/<%= tasks[task].id %>" method="post" id="taskOnProgress">
+                <select name="task_status" id="task_status" class="form-control form-control-sm" onchange="changeTaskStatus('taskOnProgress')" style="font-size: 12px;">
+                  <option value="Completed">Completed</option>
+                  <option selected value="On Progress">On Progress</option>
+                  <option value="Pending">Pending</option>
+                </select>
+              </form>
+            </div>
+            <div class="p-0">
+              <!-- Form to delete task -->
+              <form action="/delete-task/<%= tasks[task].id %>" method="post">
+                <button class="btn btn-primary btn-sm fa fa-trash" type="submit"></button>
+              </form>
+            </div>
+          </div>
+        <% } %>
+      <% } %>
+    <% } %>
+  <% } %>
+</div>

@@ -1,0 +1,29 @@
+<div class="container-fluid px-0 mx-0">
+    <div class="container-header text-right pb-4 px-5 mx-1">
+      <!-- Add Task Button -->
+      <button type="button" class="btn btn-secondary btn-sm mt-5" data-toggle="modal" data-target="#addtask">
+        <span class="fa fa-plus-circle mr-2"></span>Add Task
+      </button>
+    </div>
+    <!-- Add Task Modal -->
+    <%- include('addtaskmodal.ejs'); %>
+
+    <!-- Task Dashboard -->
+    <div class="py-2 container-fluid text-center px-5">
+      <div class="row">
+        <!-- Completed Task -->
+        <div class="col-4">
+          <%- include('taskcompleted.ejs'); %>
+        </div>
+
+        <!-- On Progress Task -->
+        <div class="col-4">
+          <%- include('taskonprogress.ejs'); %>
+        </div>
+        
+        <!-- Pending Task -->
+        <div class="col-4">
+          <%- include('taskpending.ejs'); %>
+        </div>
+      </div>
+    </div>

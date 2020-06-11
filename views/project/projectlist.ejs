@@ -1,0 +1,18 @@
+<h1 class="text-center pt-5 pb-2 font-weight-bold text-white" style="letter-spacing: -1px;">PROJECT LIST</h1>
+<div class="container-fluid px-0 mx-0">
+  <div class="container-header text-right pb-4 px-5">
+    <!-- Add Project Button -->
+    <button type="button" class="btn btn-secondary btn-sm mt-5 mr-5" data-toggle="modal" data-target="#addproject">
+      <span class="fa fa-plus-circle mr-2"></span>Add Project
+    </button>
+  </div>
+
+  <!-- Modal Add Project -->
+  <%- include('addprojectmodal.ejs'); %>
+
+  <!-- Modal Edit Project -->
+  <%- include('editprojectmodal.ejs'); %>
+
+  <!-- Show Projects List -->
+  <%- include('showproject.ejs'); %>
+</div>

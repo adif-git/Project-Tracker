@@ -1,0 +1,25 @@
+{
+  "name": "Project-Tracker",
+  "version": "1.0.0",
+  "description": "Project Tracker website for tracking your own side projects",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adif-git/Project-Tracker.git"
+  },
+  "keywords": [],
+  "author": "adif-git",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adif-git/Project-Tracker/issues"
+  },
+  "homepage": "https://github.com/adif-git/Project-Tracker#readme",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}

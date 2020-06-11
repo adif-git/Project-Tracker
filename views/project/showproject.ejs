@@ -1,0 +1,25 @@
+<div class="row row-cols-1 row-cols-lg-3 px-3 mx-5">
+    <% projects.forEach((project) => { %>
+    <div class="col mb-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="float-left m-0"><%= project.project_title %></h5>
+          <div class="btn-group float-right" role="group">
+            <!-- Edit Project Button -->
+            <button type="button" id="editproject" class="btn btn-primary btn-sm fa fa-edit mr-2" onclick="editProject('<%= project.id %>', '<%= project.project_title %>', '<%= project.project_description %>')"></button>
+            <!-- Delete Project Button -->
+            <form action="/delete-idea/<%= project.id %>" method="post">
+              <button class="btn btn-primary btn-sm fa fa-trash" type="submit"></button>
+            </form>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><%= project.project_description %></p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted"><%= project.project_created %></small>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
